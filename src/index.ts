@@ -17,4 +17,8 @@ wss.on("connection", (socket) => {
       s.send(message.toString());
     });
   });
+
+  socket.on("disconnect", () => {
+    allSockets = allSockets.filter((x) => x !== socket);
+  });
 });
